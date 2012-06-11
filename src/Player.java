@@ -12,12 +12,14 @@ public class Player implements Runnable{
     int y;
     int xDirection;
     
-    public Player(){
+    public Player()
+    {
         x = 200;
         y = 200;
     }
     
-    public void move(){
+    public void move()
+    {
         x += xDirection;
         if(x <= 0)
             x = 0;
@@ -25,23 +27,27 @@ public class Player implements Runnable{
             x = 360;
     }
     
-    public void setXDirection(int xdir){
+    public void setXDirection(int xdir)
+    {
         xDirection = xdir;
     }
     
     public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == KeyEvent.VK_D){
+        if(e.getKeyCode() == KeyEvent.VK_D)
+        {
             setXDirection(1);
         }
     }
     
-    public void keyReleased(KeyEvent e){
+    public void keyReleased(KeyEvent e)
+    {
         if(e.getKeyCode() == KeyEvent.VK_D){
             setXDirection(0);
         }
     }
     
-    public void draw(Graphics g){
+    public void draw(Graphics g)
+    {
         g.setColor(Color.BLUE);
         g.fillRect(x, y, 40, 10);
     }
