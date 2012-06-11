@@ -24,14 +24,13 @@ public class Game extends JFrame implements Runnable
 		try 
 		{
 			Background = loader.loadImage("Background.jpg");
-                        System.out.println("Loaded");
 		} 
 		catch (IOException e) 
 		{
 		}     
         
         //Game properties
-        this.setSize(1600, 900);
+        this.setSize(800, 500);
         this.setTitle(title);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -57,7 +56,6 @@ public class Game extends JFrame implements Runnable
         public void keyPressed(KeyEvent e)
         {
             p.keyPressed(e);
-            System.out.println("Press");
         }
         public void keyReleased(KeyEvent e)
         {
