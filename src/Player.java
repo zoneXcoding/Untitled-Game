@@ -39,6 +39,10 @@ public class Player
         {
             setXDirection(1);
         }
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        {
+            System.exit(0);
+        }
     }
     public void keyReleased(KeyEvent e)
     {
