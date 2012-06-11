@@ -3,21 +3,30 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Game extends JFrame{
     
     static final String title = "Untitled Game";
-    Image bg;
+    Image Background;
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
     
     public Game(){
         //Load images
-        ImageIcon i = new ImageIcon("C:/Users/Fred/Documents/NetBeansProjects/Untitled Game/src/res/bg.jpg");
-        bg = i.getImage();        
+    	BufferedImageLoader loader = new BufferedImageLoader();
+    	BufferedImage spriteSheet = null;
+		try 
+		{
+			Background = loader.loadImage("Background.jpg");
+		} 
+		catch (IOException e) 
+		{
+		}     
         
         //Game properties
         this.setSize(1600, 900);
@@ -38,7 +47,7 @@ public class Game extends JFrame{
     }
     
     public void paintComponent(Graphics g){
-        g.drawImage(bg, 0, 0, 1600, 900, null);
+        g.drawImage(Background, 0, 0, 1600, 900, null);
         
         //Draw the player
         p.draw(g);
@@ -59,7 +68,7 @@ public class Game extends JFrame{
     }
 
     public static void main(String[] args) {
-        Game g = new Game();
+        Game game = new Game();
         
         //Threads
         Thread Player = new Thread(p);
