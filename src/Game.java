@@ -45,17 +45,14 @@ public class Game extends JFrame{
         paintComponent(dbg);
         g.drawImage(dbImage, 0, 0, this);
     }
-    
     public void paintComponent(Graphics g){
         g.drawImage(Background, 0, 0, 1600, 900, null);
-        
-        //Draw the player
+                                                                                 //Paints the Player's Graphics
         p.draw(g);
         
-        //Repaint the screen
+                                                                                 //Repaint the screen
         repaint();
     }
-    
     public class AL extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e){
