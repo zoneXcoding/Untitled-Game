@@ -47,13 +47,27 @@ public class Player implements Runnable{
     }
     
 @   Override
-    public void run(){
-        try{
-            while(true){
+     public void run() 
+    {
+        try
+	{
+            while (true)
+            {
+                long beforeTime;
+                long timeTaken;
+                long sleepTime;
+        	beforeTime = System.nanoTime();
                 move();
-                Thread.sleep(5);
+                timeTaken = System.nanoTime() - beforeTime;
+                sleepTime = 10 - timeTaken / 100000;
+        	    if(sleepTime <= 0)
+    	    	sleepTime = 0;
+                    Thread.sleep(sleepTime);
             }
-        }catch(Exception e){System.err.println(e.getMessage());}
+        }
+	catch(Exception e)
+	{
+            System.out.println(e);
+	}
     }
-    
 }
