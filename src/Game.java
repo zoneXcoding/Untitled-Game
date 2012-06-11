@@ -5,7 +5,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Game extends JFrame{
