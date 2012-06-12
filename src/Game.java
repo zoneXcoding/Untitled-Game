@@ -2,6 +2,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.swing.JFrame;
@@ -30,6 +32,7 @@ public class Game extends JFrame implements Runnable
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new AL());
+        addMouseListener(new Mouse());
         init();
     }
     public void init()
@@ -88,6 +91,22 @@ public class Game extends JFrame implements Runnable
         {
             p.keyReleased(e);
         }
+    }
+    public class Mouse extends MouseAdapter
+    {
+	public void mousePressed(MouseEvent e)
+	{
+            int xCoord = e.getX();
+            int yCoord = e.getY();
+            if(Main_Menu)
+            {
+                
+            }
+            if(Upgrade_Menu)
+            {
+                
+            }
+	}   
     }
     @Override
 public void run() 
