@@ -1,4 +1,3 @@
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -15,9 +14,7 @@ public class Game extends JFrame implements Runnable
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
-    boolean Loading_Screen_Images;
-    boolean Loading_Screen_Settings;
-    boolean Loadin_Screen_Packages;
+    boolean Loading_Screen;
     boolean Main_Menu;
     boolean Playing;
     boolean Pause_Menu;
@@ -38,7 +35,7 @@ public class Game extends JFrame implements Runnable
     public void init()
     {
                                                                                 //Load Images
-        Loading_Screen_Images = true;
+        Loading_Screen = true;
         BufferedImageLoader loader = new BufferedImageLoader();
     	BufferedImage spriteSheet = null;
 	try 
@@ -49,7 +46,7 @@ public class Game extends JFrame implements Runnable
 	{
             System.err.println(e);
 	} 
-        Loading_Screen_Images = false;
+        Loading_Screen = false;
         Main_Menu = true;
     }
     @Override
@@ -62,7 +59,7 @@ public class Game extends JFrame implements Runnable
     }
     public void paintComponent(Graphics g)
     {
-        if(Loading_Screen_Images)
+        if(Loading_Screen)
         {
             
         }
