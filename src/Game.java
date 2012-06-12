@@ -15,23 +15,15 @@ public class Game extends JFrame implements Runnable
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
-    boolean Loading_Screen;
+    boolean Loading_Screen_Images;
+    boolean Loading_Screen_Settings;
+    boolean Loadin_Screen_Packages;
     boolean Main_Menu;
     boolean Pause_Menu;
     boolean Upgrade_Menu;
     
-    public Game(){
-        //Load images
-    	BufferedImageLoader loader = new BufferedImageLoader();
-    	BufferedImage spriteSheet = null;
-		try 
-		{
-			Background = loader.loadImage("Background.jpg");
-		} 
-		catch (IOException e) 
-		{
-		}     
-        
+    public Game()
+    {
         //Game properties
         this.setSize(800, 700);
         this.setTitle(title);
@@ -40,6 +32,23 @@ public class Game extends JFrame implements Runnable
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new AL());
+        init();
+    }
+    public void init()
+    {
+                                                                                //Load Images
+        Loading_Screen_Images = true;
+        BufferedImageLoader loader = new BufferedImageLoader();
+    	BufferedImage spriteSheet = null;
+	try 
+	{
+            Background = loader.loadImage("Background.jpg");
+	} 
+	catch (IOException e) 
+	{
+            System.err.println(e);
+	} 
+        Loading_Screen_Images = false;
     }
     @Override
     public void paint(Graphics g)
