@@ -45,7 +45,7 @@ public final class Game extends JFrame implements Runnable
 	{
             Background = loader.loadImage("Background.jpg");
             Main_Menu_Image = loader.loadImage("Main Menu.jpg");
-            Loading_Screen_Image = loader.loadImage("Loading Image.png");
+            Loading_Screen_Image = loader.loadImage("Loading Screen.jpg");
 	} 
 	catch (IOException e) 
 	{
