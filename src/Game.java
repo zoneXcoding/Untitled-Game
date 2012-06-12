@@ -15,6 +15,10 @@ public class Game extends JFrame implements Runnable
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
+    boolean Loading_Screen;
+    boolean Main_Menu;
+    boolean Pause_Menu;
+    boolean Upgrade_Menu;
     
     public Game(){
         //Load images
@@ -37,13 +41,16 @@ public class Game extends JFrame implements Runnable
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new AL());
     }
-    public void paint(Graphics g){
+    @Override
+    public void paint(Graphics g)
+    {
         dbImage = createImage(getWidth(), getHeight());
         dbg = dbImage.getGraphics();
         paintComponent(dbg);
         g.drawImage(dbImage, 0, 0, this);
     }
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g)
+    {
         g.drawImage(Background, 0, 0, 1600, 900, null);
                                                                                  //Paints the Player's Graphics
         p.draw(g);
@@ -52,15 +59,18 @@ public class Game extends JFrame implements Runnable
     }
     public class AL extends KeyAdapter 
     {
+        @Override
         public void keyPressed(KeyEvent e)
         {
             p.keyPressed(e);
         }
+        @Override
         public void keyReleased(KeyEvent e)
         {
             p.keyReleased(e);
         }
     }
+    @Override
 public void run() 
     {
         try
