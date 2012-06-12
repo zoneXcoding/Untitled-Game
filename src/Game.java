@@ -33,7 +33,7 @@ public class Game extends JFrame implements Runnable
 		}     
         
         //Game properties
-        this.setSize(800, 500);
+        this.setSize(800, 700);
         this.setTitle(title);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
