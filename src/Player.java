@@ -11,6 +11,7 @@ public class Player
     int x;
     int y;
     int xDirection;
+    boolean A, D;
     
     public Player()
     {
@@ -38,6 +39,12 @@ public class Player
         if(e.getKeyCode() == KeyEvent.VK_D)
         {
             setXDirection(1);
+            D = true;
+        }
+         if(e.getKeyCode() == KeyEvent.VK_A)
+        {
+            setXDirection(-1);
+            A = true;
         }
         if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
         {
@@ -46,7 +53,20 @@ public class Player
     }
     public void keyReleased(KeyEvent e)
     {
-        if(e.getKeyCode() == KeyEvent.VK_D){
+        if(e.getKeyCode() == KeyEvent.VK_D)
+            D = false;
+         if(e.getKeyCode() == KeyEvent.VK_A)
+            A = false;
+         if(e.getKeyCode() == KeyEvent.VK_D && A)
+            setXDirection(-1);
+         if(e.getKeyCode() == KeyEvent.VK_A && D)
+            setXDirection(1);
+        if(e.getKeyCode() == KeyEvent.VK_D && !A)
+        {
+            setXDirection(0);
+        }
+         if(e.getKeyCode() == KeyEvent.VK_A && !D)
+        {
             setXDirection(0);
         }
     }
