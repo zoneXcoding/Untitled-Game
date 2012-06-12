@@ -1,8 +1,9 @@
-
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.swing.JFrame;
@@ -15,52 +16,99 @@ public class Game extends JFrame implements Runnable
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
+    boolean Loading_Screen;
+    boolean Main_Menu;
+    boolean Playing;
+    boolean Pause_Menu;
+    boolean Upgrade_Menu;
     
-    public Game(){
-        //Load images
-    	BufferedImageLoader loader = new BufferedImageLoader();
-    	BufferedImage spriteSheet = null;
-		try 
-		{
-			Background = loader.loadImage("Background.jpg");
-		} 
-		catch (IOException e) 
-		{
-		}     
-        
+    public Game()
+    {
         //Game properties
-        this.setSize(800, 500);
+        this.setSize(800, 700);
         this.setTitle(title);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(new AL());
+        addMouseListener(new Mouse());
+        init();
     }
-    public void paint(Graphics g){
+    public void init()
+    {
+                                                                                //Load Images
+        Loading_Screen = true;
+        BufferedImageLoader loader = new BufferedImageLoader();
+    	BufferedImage spriteSheet = null;
+	try 
+	{
+            Background = loader.loadImage("Background.jpg");
+	} 
+	catch (IOException e) 
+	{
+            System.err.println(e);
+	} 
+        Loading_Screen = false;
+        Main_Menu = true;
+    }
+    @Override
+    public void paint(Graphics g)
+    {
         dbImage = createImage(getWidth(), getHeight());
         dbg = dbImage.getGraphics();
         paintComponent(dbg);
         g.drawImage(dbImage, 0, 0, this);
     }
-    public void paintComponent(Graphics g){
-        g.drawImage(Background, 0, 0, 1600, 900, null);
-                                                                                 //Paints the Player's Graphics
-        p.draw(g);
-                                                                              //Repaint the screen
+    public void paintComponent(Graphics g)
+    {
+        if(Loading_Screen)
+        {
+            
+        }
+        if(Main_Menu)
+        {
+            
+        }
+        if(Playing)
+        {
+          g.drawImage(Background, 0, 0, 1600, 900, null);
+                                                                                //Paints the Player's Graphics
+         p.draw(g);
+        }
+                                                                                //Repaint the screen
         repaint();
     }
     public class AL extends KeyAdapter 
     {
+        @Override
         public void keyPressed(KeyEvent e)
         {
             p.keyPressed(e);
         }
+        @Override
         public void keyReleased(KeyEvent e)
         {
             p.keyReleased(e);
         }
     }
+    public class Mouse extends MouseAdapter
+    {
+	public void mousePressed(MouseEvent e)
+	{
+            int xCoord = e.getX();
+            int yCoord = e.getY();
+            if(Main_Menu)
+            {
+                
+            }
+            if(Upgrade_Menu)
+            {
+                
+            }
+	}   
+    }
+    @Override
 public void run() 
     {
         try
