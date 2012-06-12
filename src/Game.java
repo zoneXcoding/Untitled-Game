@@ -12,7 +12,7 @@ public final class Game extends JFrame implements Runnable
 {
     
     static final String title = "Untitled Game";
-    Image Background, Main_Menu_Image;
+    Image Background, Main_Menu_Image, Loading_Screen_Image;
     static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
@@ -45,6 +45,7 @@ public final class Game extends JFrame implements Runnable
 	{
             Background = loader.loadImage("Background.jpg");
             Main_Menu_Image = loader.loadImage("Main Menu.jpg");
+            Loading_Screen_Image = loader.loadImage("Loading Screen.jpg");
 	} 
 	catch (IOException e) 
 	{
@@ -65,7 +66,7 @@ public final class Game extends JFrame implements Runnable
     {
         if(Loading_Screen)
         {
-            
+            g.drawImage(Loading_Screen_Image, 0, 0, null);
         }
         if(Main_Menu)
         {
