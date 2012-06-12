@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.swing.JFrame;
 
-public class Game extends JFrame implements Runnable
+public final class Game extends JFrame implements Runnable
 {
     
     static final String title = "Untitled Game";
