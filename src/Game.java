@@ -19,6 +19,7 @@ public class Game extends JFrame implements Runnable
     boolean Loading_Screen_Settings;
     boolean Loadin_Screen_Packages;
     boolean Main_Menu;
+    boolean Playing;
     boolean Pause_Menu;
     boolean Upgrade_Menu;
     
@@ -49,6 +50,7 @@ public class Game extends JFrame implements Runnable
             System.err.println(e);
 	} 
         Loading_Screen_Images = false;
+        Main_Menu = true;
     }
     @Override
     public void paint(Graphics g)
@@ -60,10 +62,21 @@ public class Game extends JFrame implements Runnable
     }
     public void paintComponent(Graphics g)
     {
-        g.drawImage(Background, 0, 0, 1600, 900, null);
-                                                                                 //Paints the Player's Graphics
-        p.draw(g);
-                                                                              //Repaint the screen
+        if(Loading_Screen_Images)
+        {
+            
+        }
+        if(Main_Menu)
+        {
+            
+        }
+        if(Playing)
+        {
+          g.drawImage(Background, 0, 0, 1600, 900, null);
+                                                                                //Paints the Player's Graphics
+         p.draw(g);
+        }
+                                                                                //Repaint the screen
         repaint();
     }
     public class AL extends KeyAdapter 
