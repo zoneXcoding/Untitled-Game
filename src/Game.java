@@ -13,7 +13,6 @@ public final class Game extends JFrame implements Runnable
     
     static final String title = "MineFront";
     Image Background, Main_Menu_Image, Loading_Screen_Image;
-    static Player p = new Player();
     private Graphics dbg;
     private Image dbImage;
     boolean Loading_Screen;
@@ -76,7 +75,6 @@ public final class Game extends JFrame implements Runnable
         {
           g.drawImage(Background, 0, 0, null);
                                                                                 //Paints the Player's Graphics
-         p.draw(g);
         }
                                                                                 //Repaint the screen
         repaint();
@@ -86,12 +84,10 @@ public final class Game extends JFrame implements Runnable
         @Override
         public void keyPressed(KeyEvent e)
         {
-            p.keyPressed(e);
         }
         @Override
         public void keyReleased(KeyEvent e)
         {
-            p.keyReleased(e);
         }
     }
     public class Mouse extends MouseAdapter
@@ -121,7 +117,6 @@ public void run()
                 long timeTaken;
                 long sleepTime;
         	beforeTime = System.nanoTime();
-                p.move();
                 timeTaken = System.nanoTime() - beforeTime;
                 sleepTime = 10 - timeTaken / 100000;
         	    if(sleepTime <= 0)
