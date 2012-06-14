@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public final class Game extends JFrame implements Runnable
 {
     
-    static final String title = "Untitled Game";
+    static final String title = "MineFront";
     Image Background, Main_Menu_Image, Loading_Screen_Image;
     static Player p = new Player();
     private Graphics dbg;
